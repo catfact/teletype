@@ -115,8 +115,7 @@ CSRCS = \
 # List of assembler source files.
 ASSRCS = \
        avr32/utils/startup/trampoline_uc3.S               \
-       avr32/drivers/intc/exception.S                     \
-              
+       avr32/drivers/intc/exception.S
 
 # List of include paths.
 INC_PATH = \
