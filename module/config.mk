@@ -88,7 +88,6 @@ CSRCS = \
 	../libavr32/src/init_teletype.c				\
 	../libavr32/src/init_common.c				\
 	../libavr32/src/kbd.c					\
-	../libavr32/src/print_funcs.c					\
 	../libavr32/src/region.c				\
 	../libavr32/src/screen.c				\
 	../libavr32/src/timers.c				\
@@ -116,6 +115,7 @@ CSRCS = \
 	avr32/services/fs/fat/fat_unusual.c			\
 	avr32/services/fs/fat/file.c				\
 	avr32/services/fs/fat/navigation.c			\
+	avr32/utils/debug/print_funcs.c				\
 	common/services/storage/ctrl_access/ctrl_access.c	\
 	common/services/usb/class/msc/host/uhi_msc.c		\
 	common/services/usb/class/msc/host/uhi_msc_mem.c	\
