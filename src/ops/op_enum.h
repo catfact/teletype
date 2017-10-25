@@ -130,6 +130,8 @@ typedef enum {
     E_OP_ER,
     E_OP_BPM,
     E_OP_XOR,
+    E_OP_CHAOS,
+    E_OP_CHAOS_R,
     E_OP_SYM_PLUS,
     E_OP_SYM_DASH,
     E_OP_SYM_STAR,

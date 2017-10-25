@@ -38,6 +38,9 @@ extern const tele_op_t op_V;
 extern const tele_op_t op_VV;
 extern const tele_op_t op_ER;
 extern const tele_op_t op_BPM;
+extern const tele_op_t op_CHAOS;
+extern const tele_op_t op_CHAOS_R;
+
 
 extern const tele_op_t op_XOR;  // XOR alias NE
 
