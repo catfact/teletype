@@ -2,6 +2,7 @@
 
 ## vNEXT
 - **NEW**: added a cheat sheet PDF
+- **NEW**: new op: CHAOS chaotic sequence generator.  Control with CHAOS.ALG and CHAOS.R
 
 ## v2.1
 - **BREAKING**: the `I` variable is now scoped to the `L` loop, and does not exist outside of an execution context.  Scripts using `I` as a general-purpose variable will be broken. 
