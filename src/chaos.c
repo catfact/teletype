@@ -27,6 +27,8 @@ static void chaos_scale_values(chaos_state_t* state) {
     // for henon, x in [-1.5, 1.5], r in [1, 1.4]
     state->fx = state->ix / (float)chaos_value_max * 1.5;
     state->fr = 1.f + state->ir / (float)chaos_param_max * 0.4;
+    if(state->fr < 1.f) { state->fr = 1.f; }
+    if(state->fr > 1.4) { state->fr = 1.4f; } 
     break;
   case CELLULAR:
     // 1d binary CA takes binary state and rule
@@ -36,8 +38,8 @@ static void chaos_scale_values(chaos_state_t* state) {
     if(state->ir > 0xff) { state->ir = 0xff; }
     if(state->ir < 0 ) { state->ir = 0; }
     break;
-  case LOGISTIC: // fall through
-  case CUBIC: // fall through
+  case CUBIC:
+  case LOGISTIC: // fall through    
   default:
     // for cubic / logistic, x in [-1, 1] and r in [3.2, 4)
     state->fx = state->ix / (float)chaos_value_max;
@@ -53,6 +55,7 @@ void chaos_set_val(int16_t val) {
 }
 
 static int16_t logistic_get_val() {
+  if(chaos_state.fx < 0.f) { chaos_state.fx = 0.f; }
   chaos_state.fx =
     chaos_state.fx * chaos_state.fr * (1.f - chaos_state.fx);
   chaos_state.ix = chaos_state.fx * (float)chaos_value_max;
