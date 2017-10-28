@@ -121,29 +121,29 @@ static int16_t cellular_get_val() {
 
 
 int16_t chaos_get_val() {
-  switch (chaos_state.alg) {
-  case CHAOS_LOGISTIC: return logistic_get_val();
-  case CHAOS_CUBIC: return cubic_get_val();
-  case CHAOS_HENON: return henon_get_val();
-  case CHAOS_CELLULAR: return cellular_get_val();
-  default: return 0;
-  }
+    switch (chaos_state.alg) {
+    case CHAOS_LOGISTIC: return logistic_get_val();
+    case CHAOS_CUBIC: return cubic_get_val();
+    case CHAOS_HENON: return henon_get_val();
+    case CHAOS_CELLULAR: return cellular_get_val();
+    default: return 0;
+    }
 }
 
 void chaos_set_r(int16_t r) {
-  chaos_state.ir = r;
-  chaos_scale_values(&chaos_state);
+    chaos_state.ir = r;
+    chaos_scale_values(&chaos_state);
 }
 
 int16_t chaos_get_r() {
-  return chaos_state.ir;
+    return chaos_state.ir;
 }
 
 void chaos_set_alg(int16_t a) {
-  if (a > CHAOS_CELLULAR || a < CHAOS_LOGISTIC) a = CHAOS_LOGISTIC;
-  chaos_state.alg = a;
+    if (a > CHAOS_CELLULAR || a < CHAOS_LOGISTIC) a = CHAOS_LOGISTIC;
+    chaos_state.alg = a;
 }
 
 int16_t chaos_get_alg() {
-  return chaos_state.alg;
+    return chaos_state.alg;
 }
