@@ -78,9 +78,13 @@ static int16_t cubic_get_val() {
 static int16_t henon_get_val() {
     float x0_2 = chaos_state.fx0 * chaos_state.fx0;
     float x = 1.f - (x0_2 * chaos_state.fr) + (chaos_henon_b * chaos_state.fx1);
-    // clamp to avoid blowup
-    if (x < -1.5) { x = -1.5; }
-    if (x > 1.5) { x = 1.5; }
+    // reflect bounds to avoid blowup
+    while (x < -1.5) {
+      x = -1.5 - x;      
+    }
+    while (x > 1.5) { 
+      x = 1.5 - x;
+    }
     chaos_state.fx1 = chaos_state.fx0;
     chaos_state.fx0 = chaos_state.fx;
     chaos_state.fx = x;
@@ -142,6 +146,7 @@ int16_t chaos_get_r() {
 void chaos_set_alg(int16_t a) {
     if (a > CHAOS_CELLULAR || a < CHAOS_LOGISTIC) a = CHAOS_LOGISTIC;
     chaos_state.alg = a;
+    chaos_scale_values(&chaos_state);
 }
 
 int16_t chaos_get_alg() {
